@@ -10,9 +10,6 @@
 
 @implementation FRPageModel
 
-@synthesize text = _text;
-@synthesize foregroundColor = _foregroundColor;
-
 + (instancetype)pageWithText:(NSString*)text foregroundColor:(UIColor*)foregroundColor backgroundColor:(UIColor*)backgroundColor {
     return [[FRPageModel alloc] initWithText:text foregroundColor:foregroundColor backgroundColor:backgroundColor];
 }
