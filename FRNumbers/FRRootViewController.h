@@ -9,8 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface FRRootViewController : UIViewController <UIPageViewControllerDelegate>
-
-@property (strong, nonatomic) UIPageViewController *pageViewController;
-
 @end
 

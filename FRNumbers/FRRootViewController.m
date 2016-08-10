@@ -11,13 +11,17 @@
 #import "FRPageViewController.h"
 
 @interface FRRootViewController ()
-
+@property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (readonly, strong, nonatomic) FRModelController *modelController;
 @end
+
 
 @implementation FRRootViewController
 
 @synthesize modelController = _modelController;
+
+
+#pragma mark - UIViewController methods
 
 - (void)viewDidLoad {
     [super viewDidLoad];

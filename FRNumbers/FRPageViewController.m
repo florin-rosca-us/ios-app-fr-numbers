@@ -21,20 +21,17 @@
 
 static BOOL playingSound = NO;
 
-
 + (BOOL)playingSound {
     @synchronized(self) {
         return playingSound;
     }
 }
 
-
 + (void)setPlayingSound:(BOOL)val {
     @synchronized(self) {
         playingSound = val;
     }
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,12 +41,10 @@ static BOOL playingSound = NO;
     [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -61,23 +56,19 @@ static BOOL playingSound = NO;
     [self.label setAttributedText:at];
 }
 
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self playSoundLater];
 }
-
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self stopTimer];
 }
 
-
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
 }
-
 
 - (void)stopTimer {
     @synchronized(self) {
@@ -85,7 +76,6 @@ static BOOL playingSound = NO;
         timer = nil;
     }
 }
-
 
 // Play sound
 //
@@ -133,7 +123,6 @@ static BOOL playingSound = NO;
     }
 }
 
-
 // Play sound later
 //
 - (void) playSoundLater {
@@ -144,7 +133,6 @@ static BOOL playingSound = NO;
         timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(playSound) userInfo:nil repeats:NO];
     }
 }
-
 
 - (void) handleTapFrom: (UITapGestureRecognizer *)recognizer {
     [self playSound];
