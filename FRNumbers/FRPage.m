@@ -10,21 +10,22 @@
 
 @implementation FRPage
 
-+ (instancetype)pageWithText:(NSString*)text foregroundColor:(UIColor*)foregroundColor backgroundColor:(UIColor*)backgroundColor {
-    return [[FRPage alloc] initWithText:text foregroundColor:foregroundColor backgroundColor:backgroundColor];
++ (instancetype)pageWithText:(NSString*)text foregroundColor:(UIColor*)foregroundColor backgroundColor:(UIColor*)backgroundColor sound:(NSString*)sound {
+    return [[FRPage alloc] initWithText:text foregroundColor:foregroundColor backgroundColor:backgroundColor sound:sound];
 }
 
-- (instancetype)initWithText:(NSString*)text foregroundColor:(UIColor*)foregroundColor backgroundColor:(UIColor*)backgroundColor {
+- (instancetype)initWithText:(NSString*)text foregroundColor:(UIColor*)foregroundColor backgroundColor:(UIColor*)backgroundColor sound:(NSString*)sound {
     if(self = [super init]) {
         _text = text;
         _foregroundColor = foregroundColor;
         _backgroundColor = backgroundColor;
+        _sound = sound;
     }
     return self;
 }
 
 - (instancetype)init {
-    return [self initWithText:@"0" foregroundColor:FRColorForeground01 backgroundColor:FRColorBackground01];
+    return [self initWithText:@"0" foregroundColor:FRColorForeground01 backgroundColor:FRColorBackground01 sound:nil];
 }
 
 

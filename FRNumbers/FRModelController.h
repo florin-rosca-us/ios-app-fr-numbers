@@ -11,14 +11,14 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-@class FRPageViewController;
+@class FRPageController;
 
 
 @interface FRModelController : NSObject <UIPageViewControllerDataSource>
 
-- (FRPageViewController*)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
+- (FRPageController*)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
 
-- (NSUInteger)indexOfViewController:(FRPageViewController *)viewController;
+- (NSUInteger)indexOfViewController:(FRPageController *)viewController;
 
 @end
 

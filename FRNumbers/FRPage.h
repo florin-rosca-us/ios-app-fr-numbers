@@ -15,12 +15,13 @@
 
 @interface FRPage : NSObject
 
-@property (strong, nonatomic) NSString* text;
+@property (strong, nonatomic) NSString *text;
 @property (strong, nonatomic) UIColor *foregroundColor, *backgroundColor;
+@property (strong, nonatomic) NSString *sound;
 
-+ (instancetype)pageWithText:(NSString*)text foregroundColor:(UIColor*)foregroundColor backgroundColor:(UIColor*)backgroundColor;
++ (instancetype)pageWithText:(NSString*)text foregroundColor:(UIColor*)foregroundColor backgroundColor:(UIColor*)backgroundColor sound:(NSString*)sound;
 
-- (instancetype)initWithText:(NSString*)text foregroundColor:(UIColor*)foregroundColor backgroundColor:(UIColor*)backgroundColor;
+- (instancetype)initWithText:(NSString*)text foregroundColor:(UIColor*)foregroundColor backgroundColor:(UIColor*)backgroundColor sound:(NSString*)sound;
 
 @end
 
