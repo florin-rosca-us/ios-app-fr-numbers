@@ -1,0 +1,3 @@
+[submodule "FRUtils"]
+	path = FRUtils
+	url = https://github.com/florin-rosca-us/ios-lib-fr-utils.git
