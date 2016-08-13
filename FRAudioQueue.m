@@ -121,8 +121,21 @@
 // Invoked from the play thread. Do not lock/unlock the condition except in other threads.
 - (void)playWithName:(NSString*)name {
     NSLog(@"playWithName:%@ - begin", name);
-    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"wav"];
+    // NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"wav"];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *dirDocuments = [paths objectAtIndex:0];
+    NSString *path = [dirDocuments stringByAppendingPathComponent:[name stringByAppendingString:@".wav"]];
+    if([fileManager fileExistsAtPath:path]) {
+        NSLog(@"Found: %@", path);
+    }
+    else {
+        NSLog(@"Cannot find %@, looking for a resource with same name...", path);
+        path = [[NSBundle mainBundle] pathForResource:name ofType:@"wav"];
+    }
     if(!path) {
+        NSLog(@"Cannot find %@", name);
         return;
     }
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: path], &sound);

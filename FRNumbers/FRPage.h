@@ -11,7 +11,7 @@
 #ifndef FRPage_h
 #define FRPage_h
 
-#import "FRColors.h"
+#import "FRAppConstants.h"
 
 @interface FRPage : NSObject
 
