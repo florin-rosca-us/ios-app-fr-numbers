@@ -142,8 +142,8 @@
 		4E3676461D5A89600015B777 /* FRPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPage.h; sourceTree = "<group>"; };
 		4E3676471D5A89600015B777 /* FRPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRPage.m; sourceTree = "<group>"; };
 		4E36764C1D5BA6050015B777 /* FRAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRAppConstants.h; sourceTree = "<group>"; };
-		4E3676531D5BBAB70015B777 /* FRAudioQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRAudioQueue.h; path = ../FRAudioQueue.h; sourceTree = "<group>"; };
-		4E3676541D5BBAB70015B777 /* FRAudioQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRAudioQueue.m; path = ../FRAudioQueue.m; sourceTree = "<group>"; };
+		4E3676531D5BBAB70015B777 /* FRAudioQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRAudioQueue.h; sourceTree = "<group>"; };
+		4E3676541D5BBAB70015B777 /* FRAudioQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRAudioQueue.m; sourceTree = "<group>"; };
 		4EC158BD1C5C887F004209EE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
