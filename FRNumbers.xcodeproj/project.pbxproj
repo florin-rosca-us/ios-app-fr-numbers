@@ -41,6 +41,9 @@
 		4E3676331D5988BB0015B777 /* libFRUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3676261D5984370015B777 /* libFRUtils.a */; };
 		4E3676481D5A89600015B777 /* FRPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3676471D5A89600015B777 /* FRPage.m */; };
 		4E3676551D5BBAB70015B777 /* FRAudioQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3676541D5BBAB70015B777 /* FRAudioQueue.m */; };
+		4E3676D61D623E510015B777 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3676D51D623E510015B777 /* ShareViewController.m */; };
+		4E3676D91D623E510015B777 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E3676D71D623E510015B777 /* MainInterface.storyboard */; };
+		4E3676DE1D623E510015B777 /* FRAudio.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4E3676D21D623E510015B777 /* FRAudio.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4EC158BE1C5C887F004209EE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4EC158BD1C5C887F004209EE /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
@@ -94,7 +97,28 @@
 			remoteGlobalIDString = 4E1C85E21C5FFB2E00B66912;
 			remoteInfo = FRUtils;
 		};
+		4E3676DB1D623E510015B777 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E2961FB1C5BE88C00590CF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E3676D11D623E510015B777;
+			remoteInfo = FRAudio;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4E3676DD1D623E510015B777 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4E3676DE1D623E510015B777 /* FRAudio.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4E2962071C5BE88C00590CF1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -144,6 +168,11 @@
 		4E36764C1D5BA6050015B777 /* FRAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRAppConstants.h; sourceTree = "<group>"; };
 		4E3676531D5BBAB70015B777 /* FRAudioQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRAudioQueue.h; sourceTree = "<group>"; };
 		4E3676541D5BBAB70015B777 /* FRAudioQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRAudioQueue.m; sourceTree = "<group>"; };
+		4E3676D21D623E510015B777 /* FRAudio.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FRAudio.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E3676D41D623E510015B777 /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		4E3676D51D623E510015B777 /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		4E3676D81D623E510015B777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		4E3676DA1D623E510015B777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EC158BD1C5C887F004209EE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +199,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4E3676CF1D623E510015B777 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -180,7 +216,9 @@
 				4E2962051C5BE88C00590CF1 /* FRNumbers */,
 				4E2962251C5BE88D00590CF1 /* FRNumbersTests */,
 				4E2962301C5BE88D00590CF1 /* FRNumbersUITests */,
+				4E3676D31D623E510015B777 /* FRAudio */,
 				4E3676321D5988260015B777 /* Products */,
+				4E3676D21D623E510015B777 /* FRAudio.appex */,
 			);
 			sourceTree = "<group>";
 		};
@@ -265,6 +303,17 @@
 			name = Implementation;
 			sourceTree = "<group>";
 		};
+		4E3676D31D623E510015B777 /* FRAudio */ = {
+			isa = PBXGroup;
+			children = (
+				4E3676D41D623E510015B777 /* ShareViewController.h */,
+				4E3676D51D623E510015B777 /* ShareViewController.m */,
+				4E3676D71D623E510015B777 /* MainInterface.storyboard */,
+				4E3676DA1D623E510015B777 /* Info.plist */,
+			);
+			path = FRAudio;
+			sourceTree = "<group>";
+		};
 		4EC158BF1C5CA4FD004209EE /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,11 +359,13 @@
 				4E2961FF1C5BE88C00590CF1 /* Sources */,
 				4E2962001C5BE88C00590CF1 /* Frameworks */,
 				4E2962011C5BE88C00590CF1 /* Resources */,
+				4E3676DD1D623E510015B777 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				4E36763E1D5A73690015B777 /* PBXTargetDependency */,
+				4E3676DC1D623E510015B777 /* PBXTargetDependency */,
 			);
 			name = FRNumbers;
 			productName = Numbers;
@@ -359,6 +410,23 @@
 			productReference = 4E36762F1D5988130015B777 /* FRNumbersUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		4E3676D11D623E510015B777 /* FRAudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E3676DF1D623E520015B777 /* Build configuration list for PBXNativeTarget "FRAudio" */;
+			buildPhases = (
+				4E3676CE1D623E510015B777 /* Sources */,
+				4E3676CF1D623E510015B777 /* Frameworks */,
+				4E3676D01D623E510015B777 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FRAudio;
+			productName = FRAudio;
+			productReference = 4E3676D21D623E510015B777 /* FRAudio.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -378,6 +446,9 @@
 					4E29622C1C5BE88D00590CF1 = {
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = 4E2962021C5BE88C00590CF1;
+					};
+					4E3676D11D623E510015B777 = {
+						CreatedOnToolsVersion = 7.3.1;
 					};
 				};
 			};
@@ -403,6 +474,7 @@
 				4E2962021C5BE88C00590CF1 /* FRNumbers */,
 				4E2962211C5BE88D00590CF1 /* FRNumbersTests */,
 				4E29622C1C5BE88D00590CF1 /* FRNumbersUITests */,
+				4E3676D11D623E510015B777 /* FRAudio */,
 			);
 		};
 /* End PBXProject section */
@@ -471,6 +543,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4E3676D01D623E510015B777 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E3676D91D623E510015B777 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -504,6 +584,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4E3676CE1D623E510015B777 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E3676D61D623E510015B777 /* ShareViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -532,6 +620,11 @@
 			name = FRUtils;
 			targetProxy = 4E3676401D5A73730015B777 /* PBXContainerItemProxy */;
 		};
+		4E3676DC1D623E510015B777 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E3676D11D623E510015B777 /* FRAudio */;
+			targetProxy = 4E3676DB1D623E510015B777 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -549,6 +642,14 @@
 				4E29621B1C5BE88D00590CF1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4E3676D71D623E510015B777 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E3676D81D623E510015B777 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -720,6 +821,36 @@
 			};
 			name = Release;
 		};
+		4E3676E01D623E520015B777 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = FRAudio/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "florin-rosca-us.FRNumbers.FRAudio";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4E3676E11D623E520015B777 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				INFOPLIST_FILE = FRAudio/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "florin-rosca-us.FRNumbers.FRAudio";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -758,6 +889,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		4E3676DF1D623E520015B777 /* Build configuration list for PBXNativeTarget "FRAudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E3676E01D623E520015B777 /* Debug */,
+				4E3676E11D623E520015B777 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
