@@ -41,7 +41,7 @@
 		4E3676331D5988BB0015B777 /* libFRUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3676261D5984370015B777 /* libFRUtils.a */; };
 		4E3676481D5A89600015B777 /* FRPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3676471D5A89600015B777 /* FRPage.m */; };
 		4E3676551D5BBAB70015B777 /* FRAudioQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3676541D5BBAB70015B777 /* FRAudioQueue.m */; };
-		4E3676D61D623E510015B777 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3676D51D623E510015B777 /* ShareViewController.m */; };
+		4E3676D61D623E510015B777 /* FRShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3676D51D623E510015B777 /* FRShareViewController.m */; };
 		4E3676D91D623E510015B777 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E3676D71D623E510015B777 /* MainInterface.storyboard */; };
 		4E3676DE1D623E510015B777 /* FRAudio.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4E3676D21D623E510015B777 /* FRAudio.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4EC158BE1C5C887F004209EE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4EC158BD1C5C887F004209EE /* Settings.bundle */; };
@@ -169,10 +169,12 @@
 		4E3676531D5BBAB70015B777 /* FRAudioQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRAudioQueue.h; sourceTree = "<group>"; };
 		4E3676541D5BBAB70015B777 /* FRAudioQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRAudioQueue.m; sourceTree = "<group>"; };
 		4E3676D21D623E510015B777 /* FRAudio.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FRAudio.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E3676D41D623E510015B777 /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
-		4E3676D51D623E510015B777 /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		4E3676D41D623E510015B777 /* FRShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRShareViewController.h; sourceTree = "<group>"; };
+		4E3676D51D623E510015B777 /* FRShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRShareViewController.m; sourceTree = "<group>"; };
 		4E3676D81D623E510015B777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		4E3676DA1D623E510015B777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E3676E21D64112D0015B777 /* FRAudio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FRAudio.entitlements; sourceTree = "<group>"; };
+		4E48A8CC1D6500FB0097BAE0 /* FRNumbers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FRNumbers.entitlements; sourceTree = "<group>"; };
 		4EC158BD1C5C887F004209EE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -225,6 +227,7 @@
 		4E2962051C5BE88C00590CF1 /* FRNumbers */ = {
 			isa = PBXGroup;
 			children = (
+				4E48A8CC1D6500FB0097BAE0 /* FRNumbers.entitlements */,
 				4E2962181C5BE88D00590CF1 /* Assets.xcassets */,
 				4E36764C1D5BA6050015B777 /* FRAppConstants.h */,
 				4E2962091C5BE88C00590CF1 /* FRAppDelegate.h */,
@@ -306,8 +309,9 @@
 		4E3676D31D623E510015B777 /* FRAudio */ = {
 			isa = PBXGroup;
 			children = (
-				4E3676D41D623E510015B777 /* ShareViewController.h */,
-				4E3676D51D623E510015B777 /* ShareViewController.m */,
+				4E3676E21D64112D0015B777 /* FRAudio.entitlements */,
+				4E3676D41D623E510015B777 /* FRShareViewController.h */,
+				4E3676D51D623E510015B777 /* FRShareViewController.m */,
 				4E3676D71D623E510015B777 /* MainInterface.storyboard */,
 				4E3676DA1D623E510015B777 /* Info.plist */,
 			);
@@ -438,6 +442,12 @@
 				TargetAttributes = {
 					4E2962021C5BE88C00590CF1 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = XEJD59C4TN;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					4E2962211C5BE88D00590CF1 = {
 						CreatedOnToolsVersion = 7.2;
@@ -449,6 +459,12 @@
 					};
 					4E3676D11D623E510015B777 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = XEJD59C4TN;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -588,7 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E3676D61D623E510015B777 /* ShareViewController.m in Sources */,
+				4E3676D61D623E510015B777 /* FRShareViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,6 +757,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FRNumbers/FRNumbers.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = $SOURCE_ROOT/FRUtils/FRUtils;
@@ -758,6 +775,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FRNumbers/FRNumbers.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				HEADER_SEARCH_PATHS = $SOURCE_ROOT/FRUtils/FRUtils;
@@ -825,6 +843,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = FRAudio/FRAudio.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FRAudio/Info.plist;
@@ -840,6 +859,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = FRAudio/FRAudio.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = FRAudio/Info.plist;
@@ -897,6 +917,7 @@
 				4E3676E11D623E520015B777 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
