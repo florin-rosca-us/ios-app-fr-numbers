@@ -90,18 +90,20 @@ NSString *const FRAppGroup = @"group.florin-rosca-us.FRNumbers";
     // Share the file with the group here
     NSURL *groupURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier: FRAppGroup];
     NSLog(@"doShareWithUrl:error - groupURL=%@", groupURL);
-    
+
+    // TODO: get selection from Maininterface instead of lastPathComponent. We should be able to use any incoming file name
     NSURL *outputURL = [NSURL URLWithString:[groupURL.absoluteString stringByAppendingPathComponent:inputURL.lastPathComponent]];
     NSLog(@"doShareWithUrl:error outputURL=%@", outputURL);
 
+    // TODO: copy file here:
+
+    /*
     // There is no benefit to keeping a file coordinator object past the length of the planned operation
     NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] init];
     NSError *coordinatorError = nil;
-    
-    // TODO: copy file here:
-    /*
+
     [fileCoordinator coordinateWritingItemAtURL:outputURL options:NSFileCoordinatorWritingForReplacing error:&coordinatorError byAccessor:^(NSURL *newURL) {}];
-    
+     
     if(coordinatorError) {
         NSLog(@"doShareWithUrl:error - an error occurred in coordinateWritingItemAtURL");
         [context cancelRequestWithError:inputError];
