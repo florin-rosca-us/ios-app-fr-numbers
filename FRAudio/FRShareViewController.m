@@ -76,7 +76,8 @@ NSString *const FRAppGroup = @"group.florin-rosca-us.FRNumbers";
     NSLog(@"doShare - end");
 }
 
-// Invoked in the completion handler block of [itemProvider loadItemForTypeIdentifier]
+// Invoked in the completion handler block of [itemProvider loadItemForTypeIdentifier]. Here we copy one m4a file to the shared app group container.
+// Next time the FRNumbers is activated, it will look for files there, copy them to Documents and remove them from the shared app group container.
 - (void)doShareWithUrl:(NSURL*)inputURL error:(NSError*)inputError {
     NSLog(@"doShareWithUrl:error - loaded URL=%@ error=%@", inputURL, inputError);
     NSExtensionContext *context = self.extensionContext;
@@ -95,22 +96,48 @@ NSString *const FRAppGroup = @"group.florin-rosca-us.FRNumbers";
     NSURL *outputURL = [NSURL URLWithString:[groupURL.absoluteString stringByAppendingPathComponent:inputURL.lastPathComponent]];
     NSLog(@"doShareWithUrl:error outputURL=%@", outputURL);
 
-    // TODO: copy file here:
-
-    /*
+    // To avoid data corruption, we must synchronize data accesses. Apparently NSFileCoordinators can be used since 8.2
+    // See http://www.atomicbird.com/blog/sharing-with-app-extensions
     // There is no benefit to keeping a file coordinator object past the length of the planned operation
     NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] init];
     NSError *coordinatorError = nil;
 
-    [fileCoordinator coordinateWritingItemAtURL:outputURL options:NSFileCoordinatorWritingForReplacing error:&coordinatorError byAccessor:^(NSURL *newURL) {}];
-     
+    [fileCoordinator coordinateWritingItemAtURL:outputURL options:NSFileCoordinatorWritingForReplacing error:&coordinatorError byAccessor:^(NSURL *newURL) {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSError *fileError;
+        
+        // Delete existing file. We don't want backup files
+        if([fileManager fileExistsAtPath:[outputURL path]]) {
+            if(![fileManager removeItemAtURL:outputURL error:&fileError]) {
+                NSLog(@"doShareWithUrl:error - removeItemAtURL: an error occurred while deleting %@", outputURL);
+                if(fileError ) {
+                    NSLog(@"doShareWithUrl:error - removeItemAtURL: %@", fileError);
+                }
+                return;
+            }
+            else {
+                NSLog(@"doShareWithUrl:error - removeItemAtURL: removed existing %@", outputURL);
+            }
+        }
+        
+        // Copy the content of the input file to the output file
+        if([fileManager copyItemAtURL:inputURL toURL:outputURL error:&fileError]) {
+            NSLog(@"doShareWithUrl:error - copyItemAtURL: copied %@ to %@", inputURL, outputURL);
+        }
+        else {
+            NSLog(@"doShareWithUrl:error - copyItemAtURL: an error occurred while copying %@ to %@", inputURL, outputURL);
+            if(fileError ) {
+                NSLog(@"doShareWithUrl:error - copyItemAtURL: %@", fileError);
+            }
+        }
+    }];
+    
     if(coordinatorError) {
         NSLog(@"doShareWithUrl:error - an error occurred in coordinateWritingItemAtURL");
         [context cancelRequestWithError:inputError];
         return;
     }
-     */
-    
+
     // We are not modifying any input items so we are completing the request and returning an empty array
     NSArray *outputItems = [NSArray array];
     [context completeRequestReturningItems:outputItems completionHandler:^(BOOL expired){
