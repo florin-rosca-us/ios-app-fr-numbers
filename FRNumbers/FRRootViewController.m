@@ -40,22 +40,16 @@
     
     // Add the page view controller's gesture recognizers to the book view controller's view so that the gestures are started more easily.
     self.view.gestureRecognizers = self.pageViewController.gestureRecognizers;
-    
-    // Load default audio files if missing
-    [self copyAudioFromResources];
-    [self moveAudioFromAppGroup];
 }
 
+// Add observers and/or file presenters here
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // Add observer
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshOnEnterForeground) name:UIApplicationWillEnterForegroundNotification object:[UIApplication sharedApplication]];
 }
 
+// Remove observers and/or file presenters here
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    // Remove observer
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 // Dispose of any resources that can be recreated.
@@ -76,101 +70,6 @@
 
 - (UIPageViewControllerSpineLocation)pageViewController:(UIPageViewController *)pageViewController spineLocationForInterfaceOrientation:(UIInterfaceOrientation)orientation {
     return UIPageViewControllerSpineLocationMin;
-}
-
-
-#pragma mark - Other methods
-
-// Refresh when the app enters foreground
-- (void) refreshOnEnterForeground {
-    [self copyAudioFromResources];
-    [self moveAudioFromAppGroup];
-}
-
-// Copy resources to Documents
-// From http://stackoverflow.com/questions/6545180/ios-copy-a-file-in-documents-folder
-- (void) copyAudioFromResources {
-    NSLog(@"copyAudioFromResources - begin");
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error = nil;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *dirDocuments = [paths objectAtIndex:0];
-    NSString *ext = FRAppConstants.audioFileExtension;
-    
-    for(NSString *name in FRAppConstants.audioFileNames) {
-        NSString *path = [dirDocuments stringByAppendingPathComponent:[name stringByAppendingPathExtension:ext]];
-        NSLog(@"copyAudioFromResources - copying %@...", [name stringByAppendingPathExtension:ext]);
-        if ([fileManager fileExistsAtPath:path]) {
-            NSLog(@"copyAudioFromResources - already exists");
-        }
-        else {
-            NSString *res = [[NSBundle mainBundle] pathForResource:name ofType:ext];
-            [fileManager copyItemAtPath:res toPath:path error:&error];
-            if(!error) {
-                NSLog(@"copyAudioFromResources - done");
-            }
-            else {
-                NSLog(@"copyAudioFromResources - an error occurred while copying %@: %@", name, [error localizedDescription]);
-            }
-        }
-    }
-    NSLog(@"copyAudioFromResources - end");
-}
-
-// Moves audio from the app group's tmp directory to the app's Documents directory
-// Make sure this is not called in a NSFilePresenter notification since this changes the content of the URL being presented
-- (void) moveAudioFromAppGroup {
-    NSLog(@"moveAudioFromAppGroup - begin");
-    NSURL *groupURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier: FRAppGroup];
-    NSString *groupPath = groupURL.path;
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docPath = [paths objectAtIndex:0];
-    
-    NSLog(@"moveAudioFromAppGroup - groupURL=%@", groupPath);
-    NSLog(@"moveAudioFromAppGroup - dirDocuments=%@", docPath);
-
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *fileError = nil;
-    NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] init];
-    NSError *coordinatorError = nil;
-
-    for(NSString* name in [fileManager contentsOfDirectoryAtPath:groupURL.path error:&fileError]) {
-        if(fileError) {
-            NSLog(@"moveAudioFromAppGroup - contentOfDirectoryAtPath: - an error occurred: %@", fileError);
-            break;
-        }
-        NSLog(@"moveAudioFromAppGroup - contentsOfDirectory: %@", name);
-        // We are looking for *.m4a files only
-        if(![name.pathExtension isEqualToString:FRAppConstants.audioFileExtension]) {
-            continue;
-        }
-        
-        NSURL *inputURL = [NSURL fileURLWithPath:[groupURL.path stringByAppendingPathComponent:name]];
-        NSURL *outputURL = [NSURL fileURLWithPath:[docPath stringByAppendingPathComponent:[inputURL.path lastPathComponent]]];
-        
-        BOOL isDir = NO;
-        if([fileManager fileExistsAtPath:inputURL.path isDirectory:&isDir] && !isDir) {
-            NSLog(@"moveAudioFromAppGroup - inputURL=%@", inputURL);
-            NSLog(@"moveAudioFromAppGroup - outputURL=%@", outputURL);
-            [fileCoordinator coordinateWritingItemAtURL:inputURL options:NSFileCoordinatorWritingForMoving error:&coordinatorError byAccessor:^(NSURL *newURL) {
-                NSError *fileError = nil;
-                if([fileManager fileExistsAtPath:outputURL.path]) {
-                    [fileManager removeItemAtPath:outputURL.path error:&fileError];
-                }
-                if(!fileError) {
-                    [fileManager moveItemAtURL:inputURL toURL:outputURL error:&fileError];
-                }
-                if(fileError) {
-                    NSLog(@"moveAudioFromAppGroup - moveItemAtURL: - an error occurred: %@", fileError.description);
-                }
-            }];
-            if(coordinatorError) {
-                 NSLog(@"moveAudioFromAppGroup - coordinateWritingItemAtURL: - an error occurred: %@", coordinatorError.description);
-            }
-        }
-    }
-    NSLog(@"moveAudioFromAppGroup - end");
 }
 
 @end
