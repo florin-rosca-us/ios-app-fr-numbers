@@ -43,12 +43,16 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    // Add self as observer for enter foreground notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshOnEnterForeground) name:UIApplicationWillEnterForegroundNotification object:[UIApplication sharedApplication]];
     [[FRAudioQueue sharedQueue] add:self.model.sound];
     [[FRAudioQueue sharedQueue] play];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    // Remove self as observer for enter foreground notifications
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -60,6 +64,15 @@
 #pragma mark - UIGestureRecognizerDelegate methods
 
 - (void) handleTapFrom: (UITapGestureRecognizer *)recognizer {
+    [[FRAudioQueue sharedQueue] add:self.model.sound];
+    [[FRAudioQueue sharedQueue] play];
+}
+
+
+#pragma mark - FRPageController methods
+
+- (void)refreshOnEnterForeground {
+    // Play audio when entering foreground. Note that the audio file might have changed in the app delegate
     [[FRAudioQueue sharedQueue] add:self.model.sound];
     [[FRAudioQueue sharedQueue] play];
 }
