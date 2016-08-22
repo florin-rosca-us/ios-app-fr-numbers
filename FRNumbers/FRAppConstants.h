@@ -57,7 +57,7 @@ FOUNDATION_EXPORT NSString *const FRAppGroup;
 @interface FRAppConstants : NSObject
 // TODO: These should be @property (class) but that is available in iOS10 only
 + (NSArray<NSString*> *) audioFileNames;
-+ (NSString*) audioFileExt;
++ (NSString*) audioFileExtension;
 @end
 
 #endif /* FRAppConstants */

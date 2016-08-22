@@ -21,8 +21,8 @@
     return _audioFileNames;
 }
 
-+ (NSString *)audioFileExt {
-    static NSString* _audioFileExt = @".m4a";
++ (NSString *)audioFileExtension {
+    static NSString* _audioFileExt = @"m4a";
     return _audioFileExt;
 }
 
