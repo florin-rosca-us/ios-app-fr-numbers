@@ -8,10 +8,6 @@
 
 #import "FRAppDelegate.h"
 
-// The application group
-NSString *const FRAppGroup = @"group.florin-rosca-us.FRNumbers";
-
-
 @interface FRAppDelegate ()
 @end
 

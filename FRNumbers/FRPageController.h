@@ -1,6 +1,6 @@
 //
-//  NumberViewController.h
-//  Numbers
+//  FRPageController.h
+//  FRNumbers
 //
 //  The view controller for one page. Created on demand by FRModelController.
 //

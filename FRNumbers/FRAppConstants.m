@@ -2,6 +2,8 @@
 //  FRAppConstants.m
 //  FRNumbers
 //
+//  Application constants.
+//
 //  Created by Florin on 8/22/16.
 //  Copyright © 2016 Florin. All rights reserved.
 //
@@ -9,8 +11,13 @@
 #import <Foundation/Foundation.h>
 #import "FRAppConstants.h"
 
+// The application group
+NSString *const FRAppGroup = @"group.florin-rosca-us.FRNumbers";
+
+
 @implementation FRAppConstants
 
+// Audio file names, without extension
 + (NSArray<NSString*> *)audioFileNames {
     static NSArray<NSString*> * _audioFileNames;
     @synchronized(self) {
@@ -21,6 +28,7 @@
     return _audioFileNames;
 }
 
+// The extension for audio files
 + (NSString *)audioFileExtension {
     static NSString* _audioFileExt = @"m4a";
     return _audioFileExt;

@@ -1,6 +1,8 @@
 //
-//  FRConstants.h
+//  FRAppConstants.h
 //  FRNumbers
+//
+//  Constants related to the app.
 //
 //  Created by Florin on 8/10/16.
 //  Copyright © 2016 Florin. All rights reserved.

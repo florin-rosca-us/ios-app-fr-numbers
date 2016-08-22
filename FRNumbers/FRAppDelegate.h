@@ -1,6 +1,6 @@
 //
 //  AppDelegate.h
-//  Numbers
+//  FRNumbers
 //
 //  Created by Florin Rosca on 1/29/16.
 //  Copyright © 2016 Florin Rosca. All rights reserved.

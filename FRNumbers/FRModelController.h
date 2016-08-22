@@ -1,6 +1,6 @@
 //
 //  ModelController.h
-//  Numbers
+//  FRNumbers
 //
 //  The model controller
 //
