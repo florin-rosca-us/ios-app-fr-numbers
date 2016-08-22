@@ -20,8 +20,6 @@
 @implementation FRRootViewController
 
 @synthesize modelController = _modelController;
-@synthesize presentedItemOperationQueue = _presentedItemOperationQueue;
-@synthesize presentedItemURL = _presentedItemURL;
 
 
 #pragma mark - UIViewController methods
@@ -49,15 +47,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // Add file presenter and observer
-    [NSFileCoordinator addFilePresenter:self];
+    // Add observer
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshOnEnterForeground) name:UIApplicationWillEnterForegroundNotification object:[UIApplication sharedApplication]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    // Remove file presenter and observer
-    [NSFileCoordinator removeFilePresenter:self];
+    // Remove observer
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -82,32 +78,12 @@
 }
 
 
-#pragma mark - NSFilePresenter methods
-
-- (NSOperationQueue*) presentedItemOperationQueue {
-    if(!_presentedItemOperationQueue) {
-        _presentedItemOperationQueue = [NSOperationQueue new];
-    }
-    return _presentedItemOperationQueue;
-}
-
-- (NSURL*) presentedItemURL {
-    if(!_presentedItemURL) {
-        _presentedItemURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier: FRAppGroup];
-    }
-    return _presentedItemURL;
-}
-
-- (void)presentedSubitemDidChangeAtURL:(NSURL *)url {
-    NSLog(@"presentedSubitemDidChangeAtURL:%@", url);
-    [self copyAudioFromAppGroup];
-}
-
-
 #pragma mark - Other methods
 
 // Refresh when the app enters foreground
 - (void) refreshOnEnterForeground {
+    [self copyAudioFromResources];
+    [self copyAudioFromAppGroup];
 }
 
 // Copy resources to Documents
@@ -140,6 +116,8 @@
     NSLog(@"copyAudioFromResources - end");
 }
 
+// Copies audio from the app group's tmp directory to the app's Documents directory
+// Make sure this is not called in a 
 - (void) copyAudioFromAppGroup {
     NSLog(@"copyAudioFromAppGroup - begin");
     NSExtensionContext *context = self.extensionContext;
