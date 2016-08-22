@@ -68,7 +68,8 @@ NSString *const FRAppGroup = @"group.florin-rosca-us.FRNumbers";
             return;
         }
     }
-    // Load the content
+    
+    // Load the content. We are interested in the URL only.
     [itemProvider loadItemForTypeIdentifier:(NSString *)kUTTypeFileURL options:nil completionHandler:^(NSURL *url, NSError *error) {
         [self doShareWithUrl:url error:error];
     }];

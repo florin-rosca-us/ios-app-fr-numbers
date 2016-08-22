@@ -51,4 +51,13 @@
 #define FRColorForeground10 [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0]
 #define FRColorBackground10 [UIColor colorWithRed:91.0/255.0 green:179.0/255.0 blue:190.0/255.0 alpha:1.0]
 
+// The application group
+FOUNDATION_EXPORT NSString *const FRAppGroup;
+
+@interface FRAppConstants : NSObject
+// TODO: These should be @property (class) but that is available in iOS10 only
++ (NSArray<NSString*> *) audioFileNames;
++ (NSString*) audioFileExt;
+@end
+
 #endif /* FRAppConstants */

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FRRootViewController : UIViewController <UIPageViewControllerDelegate>
+@interface FRRootViewController : UIViewController <UIPageViewControllerDelegate, NSFilePresenter>
 @end
 

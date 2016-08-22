@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FRAppConstants.h"
 
 @interface FRAppDelegate : UIResponder <UIApplicationDelegate>
 

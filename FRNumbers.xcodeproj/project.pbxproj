@@ -17,16 +17,6 @@
 		4E29621C1C5BE88D00590CF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E29621A1C5BE88D00590CF1 /* LaunchScreen.storyboard */; };
 		4E2962271C5BE88D00590CF1 /* FRNumbersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2962261C5BE88D00590CF1 /* FRNumbersTests.m */; };
 		4E2962321C5BE88D00590CF1 /* FRNumbersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2962311C5BE88D00590CF1 /* FRNumbersUITests.m */; };
-		4E2962491C5C193900590CF1 /* 01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E29623F1C5C193900590CF1 /* 01.wav */; };
-		4E29624A1C5C193900590CF1 /* 02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E2962401C5C193900590CF1 /* 02.wav */; };
-		4E29624B1C5C193900590CF1 /* 03.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E2962411C5C193900590CF1 /* 03.wav */; };
-		4E29624C1C5C193900590CF1 /* 04.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E2962421C5C193900590CF1 /* 04.wav */; };
-		4E29624D1C5C193900590CF1 /* 05.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E2962431C5C193900590CF1 /* 05.wav */; };
-		4E29624E1C5C193900590CF1 /* 06.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E2962441C5C193900590CF1 /* 06.wav */; };
-		4E29624F1C5C193900590CF1 /* 07.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E2962451C5C193900590CF1 /* 07.wav */; };
-		4E2962501C5C193900590CF1 /* 08.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E2962461C5C193900590CF1 /* 08.wav */; };
-		4E2962511C5C193900590CF1 /* 09.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E2962471C5C193900590CF1 /* 09.wav */; };
-		4E2962521C5C193900590CF1 /* 10.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E2962481C5C193900590CF1 /* 10.wav */; };
 		4E2FFAAB1C5C50E300B6D7A6 /* 1234_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2FFAAA1C5C50E300B6D7A6 /* 1234_40x40.png */; };
 		4E2FFAAD1C5C511F00B6D7A6 /* 1234_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2FFAAC1C5C511F00B6D7A6 /* 1234_60x60.png */; };
 		4E2FFAAF1C5C518900B6D7A6 /* 1234_58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2FFAAE1C5C518900B6D7A6 /* 1234_58x58.png */; };
@@ -44,6 +34,17 @@
 		4E3676D61D623E510015B777 /* FRShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3676D51D623E510015B777 /* FRShareViewController.m */; };
 		4E3676D91D623E510015B777 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E3676D71D623E510015B777 /* MainInterface.storyboard */; };
 		4E3676DE1D623E510015B777 /* FRAudio.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4E3676D21D623E510015B777 /* FRAudio.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4E48A8CE1D6ADF7E0097BAE0 /* FRAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E48A8CD1D6ADF7E0097BAE0 /* FRAppConstants.m */; };
+		4E48A8DA1D6B8EE30097BAE0 /* 01.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4E48A8D01D6B8EE30097BAE0 /* 01.m4a */; };
+		4E48A8DB1D6B8EE30097BAE0 /* 02.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4E48A8D11D6B8EE30097BAE0 /* 02.m4a */; };
+		4E48A8DC1D6B8EE30097BAE0 /* 03.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4E48A8D21D6B8EE30097BAE0 /* 03.m4a */; };
+		4E48A8DD1D6B8EE30097BAE0 /* 04.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4E48A8D31D6B8EE30097BAE0 /* 04.m4a */; };
+		4E48A8DE1D6B8EE30097BAE0 /* 05.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4E48A8D41D6B8EE30097BAE0 /* 05.m4a */; };
+		4E48A8DF1D6B8EE30097BAE0 /* 06.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4E48A8D51D6B8EE30097BAE0 /* 06.m4a */; };
+		4E48A8E01D6B8EE30097BAE0 /* 07.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4E48A8D61D6B8EE30097BAE0 /* 07.m4a */; };
+		4E48A8E11D6B8EE30097BAE0 /* 08.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4E48A8D71D6B8EE30097BAE0 /* 08.m4a */; };
+		4E48A8E21D6B8EE30097BAE0 /* 09.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4E48A8D81D6B8EE30097BAE0 /* 09.m4a */; };
+		4E48A8E31D6B8EE30097BAE0 /* 10.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4E48A8D91D6B8EE30097BAE0 /* 10.m4a */; };
 		4EC158BE1C5C887F004209EE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4EC158BD1C5C887F004209EE /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
@@ -138,16 +139,6 @@
 		4E2962281C5BE88D00590CF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E2962311C5BE88D00590CF1 /* FRNumbersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRNumbersUITests.m; sourceTree = "<group>"; };
 		4E2962331C5BE88D00590CF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E29623F1C5C193900590CF1 /* 01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 01.wav; sourceTree = "<group>"; };
-		4E2962401C5C193900590CF1 /* 02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 02.wav; sourceTree = "<group>"; };
-		4E2962411C5C193900590CF1 /* 03.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 03.wav; sourceTree = "<group>"; };
-		4E2962421C5C193900590CF1 /* 04.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 04.wav; sourceTree = "<group>"; };
-		4E2962431C5C193900590CF1 /* 05.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 05.wav; sourceTree = "<group>"; };
-		4E2962441C5C193900590CF1 /* 06.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 06.wav; sourceTree = "<group>"; };
-		4E2962451C5C193900590CF1 /* 07.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 07.wav; sourceTree = "<group>"; };
-		4E2962461C5C193900590CF1 /* 08.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 08.wav; sourceTree = "<group>"; };
-		4E2962471C5C193900590CF1 /* 09.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 09.wav; sourceTree = "<group>"; };
-		4E2962481C5C193900590CF1 /* 10.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10.wav; sourceTree = "<group>"; };
 		4E2FFAAA1C5C50E300B6D7A6 /* 1234_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1234_40x40.png; sourceTree = "<group>"; };
 		4E2FFAAC1C5C511F00B6D7A6 /* 1234_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1234_60x60.png; sourceTree = "<group>"; };
 		4E2FFAAE1C5C518900B6D7A6 /* 1234_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1234_58x58.png; sourceTree = "<group>"; };
@@ -175,6 +166,17 @@
 		4E3676DA1D623E510015B777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E3676E21D64112D0015B777 /* FRAudio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FRAudio.entitlements; sourceTree = "<group>"; };
 		4E48A8CC1D6500FB0097BAE0 /* FRNumbers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FRNumbers.entitlements; sourceTree = "<group>"; };
+		4E48A8CD1D6ADF7E0097BAE0 /* FRAppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRAppConstants.m; sourceTree = "<group>"; };
+		4E48A8D01D6B8EE30097BAE0 /* 01.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 01.m4a; sourceTree = "<group>"; };
+		4E48A8D11D6B8EE30097BAE0 /* 02.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 02.m4a; sourceTree = "<group>"; };
+		4E48A8D21D6B8EE30097BAE0 /* 03.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 03.m4a; sourceTree = "<group>"; };
+		4E48A8D31D6B8EE30097BAE0 /* 04.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 04.m4a; sourceTree = "<group>"; };
+		4E48A8D41D6B8EE30097BAE0 /* 05.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 05.m4a; sourceTree = "<group>"; };
+		4E48A8D51D6B8EE30097BAE0 /* 06.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 06.m4a; sourceTree = "<group>"; };
+		4E48A8D61D6B8EE30097BAE0 /* 07.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 07.m4a; sourceTree = "<group>"; };
+		4E48A8D71D6B8EE30097BAE0 /* 08.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 08.m4a; sourceTree = "<group>"; };
+		4E48A8D81D6B8EE30097BAE0 /* 09.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 09.m4a; sourceTree = "<group>"; };
+		4E48A8D91D6B8EE30097BAE0 /* 10.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 10.m4a; sourceTree = "<group>"; };
 		4EC158BD1C5C887F004209EE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -296,6 +298,7 @@
 		4E36764F1D5BA9420015B777 /* Implementation */ = {
 			isa = PBXGroup;
 			children = (
+				4E48A8CD1D6ADF7E0097BAE0 /* FRAppConstants.m */,
 				4E29620A1C5BE88C00590CF1 /* FRAppDelegate.m */,
 				4E3676541D5BBAB70015B777 /* FRAudioQueue.m */,
 				4E2962131C5BE88C00590CF1 /* FRModelController.m */,
@@ -321,16 +324,16 @@
 		4EC158BF1C5CA4FD004209EE /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				4E29623F1C5C193900590CF1 /* 01.wav */,
-				4E2962401C5C193900590CF1 /* 02.wav */,
-				4E2962411C5C193900590CF1 /* 03.wav */,
-				4E2962421C5C193900590CF1 /* 04.wav */,
-				4E2962431C5C193900590CF1 /* 05.wav */,
-				4E2962441C5C193900590CF1 /* 06.wav */,
-				4E2962451C5C193900590CF1 /* 07.wav */,
-				4E2962461C5C193900590CF1 /* 08.wav */,
-				4E2962471C5C193900590CF1 /* 09.wav */,
-				4E2962481C5C193900590CF1 /* 10.wav */,
+				4E48A8D01D6B8EE30097BAE0 /* 01.m4a */,
+				4E48A8D11D6B8EE30097BAE0 /* 02.m4a */,
+				4E48A8D21D6B8EE30097BAE0 /* 03.m4a */,
+				4E48A8D31D6B8EE30097BAE0 /* 04.m4a */,
+				4E48A8D41D6B8EE30097BAE0 /* 05.m4a */,
+				4E48A8D51D6B8EE30097BAE0 /* 06.m4a */,
+				4E48A8D61D6B8EE30097BAE0 /* 07.m4a */,
+				4E48A8D71D6B8EE30097BAE0 /* 08.m4a */,
+				4E48A8D81D6B8EE30097BAE0 /* 09.m4a */,
+				4E48A8D91D6B8EE30097BAE0 /* 10.m4a */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -520,27 +523,27 @@
 				4E29621C1C5BE88D00590CF1 /* LaunchScreen.storyboard in Resources */,
 				4E2FFAAB1C5C50E300B6D7A6 /* 1234_40x40.png in Resources */,
 				4E2FFAB51C5C522F00B6D7A6 /* 1234_80x80.png in Resources */,
-				4E29624C1C5C193900590CF1 /* 04.wav in Resources */,
-				4E2962511C5C193900590CF1 /* 09.wav in Resources */,
-				4E29624E1C5C193900590CF1 /* 06.wav in Resources */,
 				4E2FFABB1C5C52F700B6D7A6 /* 1234_76x76.png in Resources */,
-				4E2962521C5C193900590CF1 /* 10.wav in Resources */,
 				4E2FFABF1C5C535E00B6D7A6 /* 1234_167x167.png in Resources */,
 				4E2962191C5BE88D00590CF1 /* Assets.xcassets in Resources */,
 				4E2FFABD1C5C532600B6D7A6 /* 1234_152x152.png in Resources */,
-				4E29624F1C5C193900590CF1 /* 07.wav in Resources */,
-				4E2962501C5C193900590CF1 /* 08.wav in Resources */,
-				4E29624B1C5C193900590CF1 /* 03.wav in Resources */,
-				4E2962491C5C193900590CF1 /* 01.wav in Resources */,
+				4E48A8E11D6B8EE30097BAE0 /* 08.m4a in Resources */,
+				4E48A8DA1D6B8EE30097BAE0 /* 01.m4a in Resources */,
+				4E48A8E31D6B8EE30097BAE0 /* 10.m4a in Resources */,
+				4E48A8DF1D6B8EE30097BAE0 /* 06.m4a in Resources */,
 				4E2FFAB11C5C51A800B6D7A6 /* 1234_29x29.png in Resources */,
+				4E48A8E21D6B8EE30097BAE0 /* 09.m4a in Resources */,
 				4E2FFAB31C5C51E700B6D7A6 /* 1234_87x87.png in Resources */,
 				4E2FFAB91C5C529300B6D7A6 /* 1234_180x180.png in Resources */,
 				4E2FFAB71C5C526500B6D7A6 /* 1234_120x120.png in Resources */,
 				4EC158BE1C5C887F004209EE /* Settings.bundle in Resources */,
+				4E48A8DC1D6B8EE30097BAE0 /* 03.m4a in Resources */,
 				4E2962171C5BE88D00590CF1 /* Main.storyboard in Resources */,
+				4E48A8DB1D6B8EE30097BAE0 /* 02.m4a in Resources */,
 				4E2FFAAF1C5C518900B6D7A6 /* 1234_58x58.png in Resources */,
-				4E29624D1C5C193900590CF1 /* 05.wav in Resources */,
-				4E29624A1C5C193900590CF1 /* 02.wav in Resources */,
+				4E48A8DE1D6B8EE30097BAE0 /* 05.m4a in Resources */,
+				4E48A8DD1D6B8EE30097BAE0 /* 04.m4a in Resources */,
+				4E48A8E01D6B8EE30097BAE0 /* 07.m4a in Resources */,
 				4E2FFAAD1C5C511F00B6D7A6 /* 1234_60x60.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E3676481D5A89600015B777 /* FRPage.m in Sources */,
+				4E48A8CE1D6ADF7E0097BAE0 /* FRAppConstants.m in Sources */,
 				4E2962111C5BE88C00590CF1 /* FRPageController.m in Sources */,
 				4E3676551D5BBAB70015B777 /* FRAudioQueue.m in Sources */,
 				4E29620B1C5BE88C00590CF1 /* FRAppDelegate.m in Sources */,

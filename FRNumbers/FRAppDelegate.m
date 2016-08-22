@@ -8,9 +8,12 @@
 
 #import "FRAppDelegate.h"
 
+// The application group
+NSString *const FRAppGroup = @"group.florin-rosca-us.FRNumbers";
+
+
 @interface FRAppDelegate ()
 @end
-
 
 @implementation FRAppDelegate
 
@@ -25,8 +28,6 @@
 // Tells the delegate that the launch process is almost done and the app is almost ready to run.
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"application:didFinishLaunchingWithOptions: - begin");
-    // Always copy missing resources first
-    [self copyResources];
 
     // Override point for customization after application launch.
     if(!launchOptions) {
@@ -75,34 +76,5 @@
 
 #pragma mark - Other methods
 
-// Copy resources to Documents
-// From http://stackoverflow.com/questions/6545180/ios-copy-a-file-in-documents-folder
-- (void) copyResources {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error = nil;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *dirDocuments = [paths objectAtIndex:0];
-    
-    NSArray *names = [NSArray arrayWithObjects:@"01", @"02", @"03", @"04", @"05", @"06", @"07", @"08", @"09", @"10", nil];
-    
-    for(id n in names) {
-        NSString *name = (NSString*)n;
-        NSString *path = [dirDocuments stringByAppendingPathComponent:[name stringByAppendingString:@".wav"]];
-        NSLog(@"Copying %@...", [name stringByAppendingString:@".wav"]);
-        if ([fileManager fileExistsAtPath:path]) {
-            NSLog(@"Already exists");
-        }
-        else {
-            NSString *res = [[NSBundle mainBundle] pathForResource:name ofType:@"wav"];
-            [fileManager copyItemAtPath:res toPath:path error:&error];
-            if(!error) {
-                NSLog(@"Done");
-            }
-            else {
-                NSLog(@"An error occurred while copying %@: %@", name, [error localizedDescription]);
-            }
-        }
-    }
-}
 
 @end

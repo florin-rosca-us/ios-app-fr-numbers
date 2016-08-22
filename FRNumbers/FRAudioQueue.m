@@ -7,6 +7,7 @@
 //
 
 #import "FRAudioQueue.h"
+#import "FRAppConstants.h"
 #import "FRUtils.h"
 
 @interface FRAudioQueue ()
@@ -121,21 +122,20 @@
 // Invoked from the play thread. Do not lock/unlock the condition except in other threads.
 - (void)playWithName:(NSString*)name {
     NSLog(@"playWithName:%@ - begin", name);
-    // NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"wav"];
-    
+    NSString* ext = FRAppConstants.audioFileExt;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *dirDocuments = [paths objectAtIndex:0];
-    NSString *path = [dirDocuments stringByAppendingPathComponent:[name stringByAppendingString:@".wav"]];
+    NSString *path = [dirDocuments stringByAppendingPathComponent:[name stringByAppendingString:ext]];
     if([fileManager fileExistsAtPath:path]) {
-        NSLog(@"Found: %@", path);
+        NSLog(@"playWithName:%@ - found: %@", name, path);
     }
     else {
-        NSLog(@"Cannot find %@, looking for a resource with same name...", path);
-        path = [[NSBundle mainBundle] pathForResource:name ofType:@"wav"];
+        NSLog(@"playWithName:%@ - cannot find %@, looking for a resource with same name...", name, path);
+        path = [[NSBundle mainBundle] pathForResource:name ofType:ext];
     }
     if(!path) {
-        NSLog(@"Cannot find %@", name);
+        NSLog(@"playWithName:%@ - cannot find resource %@", name, path);
         return;
     }
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: path], &sound);
@@ -143,13 +143,15 @@
         return;
     }
     AudioServicesPlaySystemSoundWithCompletion(sound, ^void {
-        NSLog(@"playWithName:%@ - end", name);
+        NSLog(@"playWithName:%@ - callback - begin", name);
         [condition lock];
         AudioServicesDisposeSystemSoundID(sound);
         sound = 0;
         [condition signal];
         [condition unlock];
+         NSLog(@"playWithName:%@ - callback - end", name);
     });
+    NSLog(@"playWithName:%@ - end", name);
 }
 
 // Stops playing. Attempts to kill the play thread.
