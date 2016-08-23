@@ -4,32 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeIconFiles</key>
-			<array>
-				<string>1234_40x40</string>
-				<string>1234_60x60</string>
-				<string>1234_80x80</string>
-				<string>1234_120x120</string>
-				<string>1234_76x76</string>
-				<string>1234_152x152</string>
-				<string>1234_87x87</string>
-				<string>1234_120x120</string>
-				<string>1234_40x40</string>
-				<string>1234_80x80</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>Sound</string>
-			<key>LSHandlerRank</key>
-			<string>Alternate</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>public.audio</string>
-			</array>
-		</dict>
-	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
