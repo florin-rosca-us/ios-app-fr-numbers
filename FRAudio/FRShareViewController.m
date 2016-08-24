@@ -20,12 +20,12 @@ NSString *const FRAppGroup = @"group.florin-rosca-us.FRNumbers";
 
 @implementation FRShareViewController
 
-// Sets up the navigation bar: sets the title, adds Cancel and Done buttons
+// Sets up the navigation bar: sets the title, adds Cancel and Save buttons
 - (void)viewDidLoad {
     UINavigationBar *bar = self.navigationBar;
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleDone target:nil action:@selector(doCancel)];
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:nil action:@selector(doShare)];
-    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"Audio"];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", nil) style:UIBarButtonItemStyleDone target:nil action:@selector(doCancel)];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", nil) style:UIBarButtonItemStyleDone target:nil action:@selector(doSave)];
+    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Count with Me", nil)];
     item.leftBarButtonItem = leftButton;
     item.rightBarButtonItem = rightButton;
     item.hidesBackButton = YES;
@@ -42,9 +42,9 @@ NSString *const FRAppGroup = @"group.florin-rosca-us.FRNumbers";
     [context cancelRequestWithError:error];
 }
 
-// Invoked when the user taps "Done"
-- (void)doShare {
-    NSLog(@"doShare - begin");
+// Invoked when the user taps "Save"
+- (void)doSave {
+    NSLog(@"doSave - begin");
     
     NSArray* typeIdentifiers = [NSArray arrayWithObjects:(NSString*)kUTTypeFileURL, (NSString*)kUTTypeMPEG4Audio, nil];
     NSExtensionContext *context = self.extensionContext;
@@ -52,7 +52,7 @@ NSString *const FRAppGroup = @"group.florin-rosca-us.FRNumbers";
 
     // From http://stackoverflow.com/questions/24056024/sharing-extension-in-ios8-beta
     if(inputItems.count == 0) {
-        NSLog(@"doShare - no items");
+        NSLog(@"doSave - no items");
         [context cancelRequestWithError: [NSError errorWithDomain:NSCocoaErrorDomain code:NSFeatureUnsupportedError userInfo:nil]];
         return;
     }
@@ -63,7 +63,7 @@ NSString *const FRAppGroup = @"group.florin-rosca-us.FRNumbers";
     // Check if the item provider conforms to all type identifiers that we are looking for
     for(id typeIdentifier in typeIdentifiers) {
         if (![itemProvider hasItemConformingToTypeIdentifier:(NSString*)typeIdentifier]) {
-            NSLog(@"doShare - nothing to share");
+            NSLog(@"doSave - nothing to share");
             [context cancelRequestWithError: [NSError errorWithDomain:NSCocoaErrorDomain code:NSFeatureUnsupportedError userInfo:nil]];
             return;
         }
@@ -74,7 +74,7 @@ NSString *const FRAppGroup = @"group.florin-rosca-us.FRNumbers";
         [self doShareWithUrl:url error:error];
     }];
     
-    NSLog(@"doShare - end");
+    NSLog(@"doSave - end");
 }
 
 // Invoked in the completion handler block of [itemProvider loadItemForTypeIdentifier]. Here we copy one m4a file to the shared app group container.

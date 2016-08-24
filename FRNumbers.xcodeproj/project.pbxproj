@@ -36,6 +36,7 @@
 		4E48A8E31D6B8EE30097BAE0 /* 10.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4E48A8D91D6B8EE30097BAE0 /* 10.m4a */; };
 		4E77BE211D6CF88D002F41B5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E77BE231D6CF88D002F41B5 /* InfoPlist.strings */; };
 		4E77BE2A1D6CFB5F002F41B5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E77BE2C1D6CFB5F002F41B5 /* InfoPlist.strings */; };
+		4E77BE351D6D19D7002F41B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E77BE371D6D19D7002F41B5 /* Localizable.strings */; };
 		4EC158BE1C5C887F004209EE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4EC158BD1C5C887F004209EE /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
@@ -169,6 +170,9 @@
 		4E77BE2B1D6CFB5F002F41B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4E77BE2F1D6CFB9F002F41B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4E77BE301D6CFBA4002F41B5 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4E77BE361D6D19D7002F41B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4E77BE381D6D19DB002F41B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4E77BE391D6D19DD002F41B5 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4EC158BD1C5C887F004209EE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -307,9 +311,10 @@
 				4E3676E21D64112D0015B777 /* FRAudio.entitlements */,
 				4E3676D41D623E510015B777 /* FRShareViewController.h */,
 				4E3676D51D623E510015B777 /* FRShareViewController.m */,
-				4E3676D71D623E510015B777 /* MainInterface.storyboard */,
 				4E3676DA1D623E510015B777 /* Info.plist */,
 				4E77BE2C1D6CFB5F002F41B5 /* InfoPlist.strings */,
+				4E77BE371D6D19D7002F41B5 /* Localizable.strings */,
+				4E3676D71D623E510015B777 /* MainInterface.storyboard */,
 			);
 			path = FRAudio;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E3676D91D623E510015B777 /* MainInterface.storyboard in Resources */,
+				4E77BE351D6D19D7002F41B5 /* Localizable.strings in Resources */,
 				4E77BE2A1D6CFB5F002F41B5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -663,6 +669,16 @@
 				4E77BE301D6CFBA4002F41B5 /* ro */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4E77BE371D6D19D7002F41B5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E77BE361D6D19D7002F41B5 /* Base */,
+				4E77BE381D6D19DB002F41B5 /* en */,
+				4E77BE391D6D19DD002F41B5 /* ro */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
