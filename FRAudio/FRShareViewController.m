@@ -116,61 +116,52 @@
 // Invoked in the completion handler block of [itemProvider loadItemForTypeIdentifier]. Here we copy one m4a file to the shared app group container.
 // Next time the FRNumbers is activated, it will look for files there, copy them to Documents and remove them from the shared app group container.
 - (void)doShareWithUrl:(NSURL*)inputURL error:(NSError*)inputError {
-    NSLog(@"doShareWithUrl:error - loaded URL=%@ error=%@", inputURL, inputError);
+    NSLog(@"doShareWithUrl:error: - loaded URL=%@ error=%@", inputURL, inputError);
     NSExtensionContext *context = self.extensionContext;
 
     if(inputError) {
-        NSLog(@"doShareWithUrl:error - an error occurred in loadItemForTypeIdentifier");
+        NSLog(@"doShareWithUrl:error: - an error occurred in loadItemForTypeIdentifier");
         [context cancelRequestWithError:inputError];
         return;
     }
     
     // Share the file with the group here
     NSURL *groupURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier: FRAppGroup];
-    NSLog(@"doShareWithUrl:error - groupURL=%@", groupURL);
+    NSLog(@"doShareWithUrl:error: - groupURL=%@", groupURL);
 
-    // TODO: get selection from Maininterface instead of lastPathComponent. We should be able to use any incoming file name
-    NSURL *outputURL = [NSURL URLWithString:[groupURL.absoluteString stringByAppendingPathComponent:inputURL.lastPathComponent]];
+    // Use the current selection from the FRNumberTableViewController to build the output file name.
+    // The selection is zero-based.
+    NSString *fileName = nil;
+    fileName = [NSString stringWithFormat:@"%02lu", (self->selection + 1)];
+    fileName = [fileName stringByAppendingPathExtension:inputURL.lastPathComponent.pathExtension];
+    NSURL *outputURL = [NSURL URLWithString:[groupURL.absoluteString stringByAppendingPathComponent:fileName]];
     NSLog(@"doShareWithUrl:error outputURL=%@", outputURL);
 
-    // To avoid data corruption, we must synchronize data accesses. Apparently NSFileCoordinators can be used since 8.2
+    // To avoid data corruption, we must synchronize data accesses. Apparently NSFileCoordinators can be used since 8.2.
     // See http://www.atomicbird.com/blog/sharing-with-app-extensions
-    // There is no benefit to keeping a file coordinator object past the length of the planned operation
+    // There is no benefit to keeping a file coordinator object past the length of the planned operation.
     NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] init];
     NSError *coordinatorError = nil;
-
     [fileCoordinator coordinateWritingItemAtURL:outputURL options:NSFileCoordinatorWritingForReplacing error:&coordinatorError byAccessor:^(NSURL *newURL) {
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSError *fileError;
-        
         // Delete existing file. We don't want backup files
         if([fileManager fileExistsAtPath:[outputURL path]]) {
+            NSLog(@"doShareWithUrl:error:^byAccessor - removing existing %@", outputURL);
             if(![fileManager removeItemAtURL:outputURL error:&fileError]) {
-                NSLog(@"doShareWithUrl:error - removeItemAtURL: an error occurred while deleting %@", outputURL);
-                if(fileError ) {
-                    NSLog(@"doShareWithUrl:error - removeItemAtURL: %@", fileError);
-                }
+                NSLog(@"doShareWithUrl:error:^byAccessor - removeItemAtURL: %@", fileError);
+                NSLog(@"doShareWithUrl:error:^byAccessor - end");
                 return;
             }
-            else {
-                NSLog(@"doShareWithUrl:error - removeItemAtURL: removed existing %@", outputURL);
-            }
         }
-        
         // Copy the content of the input file to the output file
-        if([fileManager copyItemAtURL:inputURL toURL:outputURL error:&fileError]) {
-            NSLog(@"doShareWithUrl:error - copyItemAtURL: copied %@ to %@", inputURL, outputURL);
-        }
-        else {
-            NSLog(@"doShareWithUrl:error - copyItemAtURL: an error occurred while copying %@ to %@", inputURL, outputURL);
-            if(fileError ) {
-                NSLog(@"doShareWithUrl:error - copyItemAtURL: %@", fileError);
-            }
+        NSLog(@"doShareWithUrl:error: - copying %@ to %@", inputURL, outputURL);
+        if(![fileManager copyItemAtURL:inputURL toURL:outputURL error:&fileError]) {
+            NSLog(@"doShareWithUrl:error: - copyItemAtURL: %@", fileError);
         }
     }];
-    
     if(coordinatorError) {
-        NSLog(@"doShareWithUrl:error - an error occurred in coordinateWritingItemAtURL");
+        NSLog(@"doShareWithUrl:error: - an error occurred in coordinateWritingItemAtURL");
         [context cancelRequestWithError:inputError];
         return;
     }
@@ -180,10 +171,10 @@
     [context completeRequestReturningItems:outputItems completionHandler:^(BOOL expired){
         // If the system calls your block with an expired value of YES, you must immediately suspend your app extension.
         // If you fail to do this, the system terminates your extension’s process.
-        NSLog(@"doShareWithUrl:error - completeRequestReturningItems - expired=%@", expired?@"YES":@"NO");
+        NSLog(@"doShareWithUrl:error:^completionHandler - expired=%@", expired?@"YES":@"NO");
     }];
     
-    NSLog(@"doShareWithUrl:error - end");
+    NSLog(@"doShareWithUrl:error: - end");
 }
 
 @end
