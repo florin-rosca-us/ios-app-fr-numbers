@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FRExtConstants.h"
 
 @interface FRNumberTableViewController : UITableViewController
-
 @end

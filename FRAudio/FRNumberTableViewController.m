@@ -8,20 +8,27 @@
 
 #import "FRNumberTableViewController.h"
 
-@interface FRNumberTableViewController ()
 
+@interface FRNumberTableViewController () {
+    NSUInteger selection;
+}
 @end
+
 
 @implementation FRNumberTableViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+#pragma mark - UIViewController methods
+
+- (instancetype)init {
+    if(self = [super init]) {
+        self->selection = 0;
+    }
+    return self;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self postSelectionChangedTo:self->selection];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,65 +36,74 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
+
+#pragma mark - UITableViewDataSource methods
+
+// Returns the number of sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
+// Returns the number of rows
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
 }
 
+// Configures the cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID" forIndexPath:indexPath];
-    cell.textLabel.text = @"Hola";
-    // Configure the cell...    
+    NSUInteger row = indexPath.row;
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld", (row + 1)];
+    cell.accessoryType = row == self->selection ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+// Configures the table title
+- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return NSLocalizedString(@"Use audio for:", nil);
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+
+
+#pragma mark - UITableViewDelegate methods
+
+// Updates the selection and posts a notification via NSNotificationCenter
+// The selection is the current table row (zero-based)
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"tableView:didSelectRowIndexAtPath: - begin");
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:self->selection inSection:0];
+    
+    if(indexPath.row == oldIndexPath.row) {
+        NSLog(@"tableView:didSelectRowIndexAtPath: - end (no change)");
+        return;
+    }
+    
+    UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
+    if (newCell.accessoryType == UITableViewCellAccessoryNone) {
+        newCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        self->selection = indexPath.row;
+        [self postSelectionChangedTo:self->selection];
+    }
+    
+    UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
+    if (oldCell.accessoryType == UITableViewCellAccessoryCheckmark) {
+        oldCell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    NSLog(@"tableView:didSelectRowIndexAtPath: - end");
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+
+
+#pragma mark - Other methods
+
+// Posts a notification via NSNotificationCenter
+- (void) postSelectionChangedTo:(NSUInteger)theSelection {
+    NSDictionary* userInfo = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithUnsignedInteger:theSelection], FRNumberTableViewControllerSelection, nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:FRNumberTableViewControllerSelection object:self userInfo:userInfo];
+
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

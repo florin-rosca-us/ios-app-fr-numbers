@@ -9,19 +9,30 @@
 //
 
 #import "FRShareViewController.h"
-
-// The application group
-NSString *const FRAppGroup = @"group.florin-rosca-us.FRNumbers";
+#import "FRNumberTableViewController.h"
 
 
-@interface FRShareViewController ()
+@interface FRShareViewController () {
+    NSUInteger selection;
+}
 @end
 
 
 @implementation FRShareViewController
 
+
+#pragma mark - UIViewController methods
+
+- (instancetype)init {
+    if(self = [super init]) {
+        self->selection = 0;
+    }
+    return self;
+}
+
 // Sets up the navigation bar: sets the title, adds Cancel and Save buttons
 - (void)viewDidLoad {
+    [super viewDidLoad];
     UINavigationBar *bar = self.navigationBar;
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", nil) style:UIBarButtonItemStyleDone target:nil action:@selector(doCancel)];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", nil) style:UIBarButtonItemStyleDone target:nil action:@selector(doSave)];
@@ -30,6 +41,31 @@ NSString *const FRAppGroup = @"group.florin-rosca-us.FRNumbers";
     item.rightBarButtonItem = rightButton;
     item.hidesBackButton = YES;
     [bar pushNavigationItem:item animated:NO];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectionChanged:) name:FRNumberTableViewControllerSelection object:nil];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+
+#pragma mark - Other methods
+
+- (void)selectionChanged:(NSNotification*)notification {
+    NSDictionary* userInfo = notification.userInfo;
+    if(!userInfo) {
+        return;
+    }
+    NSNumber *value = [userInfo objectForKey:FRNumberTableViewControllerSelection];
+    self->selection = [value unsignedIntegerValue];
+    NSLog(@"selectionChanged: - the selection is now: %lu", (unsigned long)self->selection);
 }
 
 // Invoked when the user taps "Cancel"

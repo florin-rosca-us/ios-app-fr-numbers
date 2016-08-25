@@ -11,9 +11,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
-
-// The application group
-FOUNDATION_EXPORT NSString *const FRAppGroup;
+#import "FRExtConstants.h"
 
 @interface FRShareViewController : UINavigationController
 @end
