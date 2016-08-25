@@ -4,8 +4,8 @@
 //
 //  Application constants.
 //
-//  Created by Florin on 8/22/16.
-//  Copyright © 2016 Florin. All rights reserved.
+//  Created by Florin Rosca on 8/22/16.
+//  Copyright © 2016 Florin Rosca. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

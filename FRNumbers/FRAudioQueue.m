@@ -2,8 +2,8 @@
 //  FRAudioQueue.m
 //  FRNumbers
 //
-//  Created by Florin on 8/10/16.
-//  Copyright © 2016 Florin. All rights reserved.
+//  Created by Florin Rosca on 8/10/16.
+//  Copyright © 2016 Florin Rosca. All rights reserved.
 //
 
 #import "FRAudioQueue.h"
