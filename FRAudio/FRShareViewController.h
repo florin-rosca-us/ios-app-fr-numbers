@@ -11,7 +11,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
-#import "FRExtConstants.h"
+#import "FRAppConstants.h"
+#import "FRNumberTableViewController.h"
+
 
 @interface FRShareViewController : UINavigationController
 @end

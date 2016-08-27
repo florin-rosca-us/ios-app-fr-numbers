@@ -7,9 +7,6 @@
 //
 
 #import "FRRootViewController.h"
-#import "FRAppConstants.h"
-#import "FRModelController.h"
-#import "FRPageController.h"
 
 @interface FRRootViewController ()
 @property (strong, nonatomic) UIPageViewController *pageViewController;

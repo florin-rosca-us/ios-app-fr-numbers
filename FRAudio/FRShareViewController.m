@@ -9,7 +9,6 @@
 //
 
 #import "FRShareViewController.h"
-#import "FRNumberTableViewController.h"
 
 
 @interface FRShareViewController () {
@@ -45,7 +44,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectionChanged:) name:FRNumberTableViewControllerSelection object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectionChanged:) name:FRNotifySelectionChanged object:nil];
 }
 
 
@@ -63,7 +62,7 @@
     if(!userInfo) {
         return;
     }
-    NSNumber *value = [userInfo objectForKey:FRNumberTableViewControllerSelection];
+    NSNumber *value = [userInfo objectForKey:FRUserInfoSelection];
     self->selection = [value unsignedIntegerValue];
     NSLog(@"selectionChanged: - the selection is now: %lu", (unsigned long)self->selection);
 }

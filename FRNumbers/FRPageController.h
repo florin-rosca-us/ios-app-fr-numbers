@@ -8,14 +8,17 @@
 //  Copyright © 2016 Florin Rosca. All rights reserved.
 //
 
+#ifndef FRPageController_h
+#define FRPageController_h
+
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "FRAudioQueue.h"
 #import "FRPage.h"
 
 @interface FRPageController : UIViewController <UIGestureRecognizerDelegate>
-
 @property (strong, nonatomic) IBOutlet UILabel *label;
 @property (strong, nonatomic) FRPage *model;
-
 @end
 
+#endif

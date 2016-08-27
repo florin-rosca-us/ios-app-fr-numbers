@@ -54,7 +54,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID" forIndexPath:indexPath];
     NSUInteger row = indexPath.row;
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld", (row + 1)];
+    cell.textLabel.text = [NSString stringWithFormat:@"%lu", (row + 1)];
     cell.accessoryType = row == self->selection ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     return cell;
 }
@@ -101,8 +101,8 @@
 
 // Posts a notification via NSNotificationCenter
 - (void) postSelectionChangedTo:(NSUInteger)theSelection {
-    NSDictionary* userInfo = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithUnsignedInteger:theSelection], FRNumberTableViewControllerSelection, nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:FRNumberTableViewControllerSelection object:self userInfo:userInfo];
+    NSDictionary* userInfo = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithUnsignedInteger:theSelection], FRUserInfoSelection, nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:FRNotifySelectionChanged object:self userInfo:userInfo];
 
 }
 

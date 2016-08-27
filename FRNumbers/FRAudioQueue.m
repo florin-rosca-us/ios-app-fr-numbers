@@ -7,8 +7,6 @@
 //
 
 #import "FRAudioQueue.h"
-#import "FRAppConstants.h"
-#import "FRUtils.h"
 
 @interface FRAudioQueue ()
 @property(atomic) BOOL stopRequested;
@@ -122,7 +120,7 @@
 // Invoked from the play thread. Do not lock/unlock the condition except in other threads.
 - (void)playWithName:(NSString*)name {
     NSLog(@"playWithName:%@ - begin", name);
-    NSString* ext = FRAppConstants.audioFileExtension;
+    NSString* ext = FRAudioFileExtension;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *dirDocuments = [paths objectAtIndex:0];

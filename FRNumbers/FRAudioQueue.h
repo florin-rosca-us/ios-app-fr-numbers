@@ -6,8 +6,13 @@
 //  Copyright © 2016 Florin Rosca. All rights reserved.
 //
 
+#ifndef FRAudioQueue_h
+#define FRAudioQueue_h
+
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "FRAppConstants.h"
+#import "FRUtils.h"
 
 
 @interface FRAudioQueue : NSObject
@@ -34,3 +39,5 @@
 - (BOOL)stop;
 
 @end
+
+#endif

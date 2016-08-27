@@ -10,47 +10,17 @@
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>Sound</string>
+			<string>Audio</string>
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSMultiValueSpecifier</string>
+			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Voice</string>
+			<string>Reset to Default</string>
 			<key>Key</key>
-			<string>voice_id</string>
+			<string>FRPrefAudioReset</string>
 			<key>DefaultValue</key>
-			<string>Dana</string>
-			<key>Titles</key>
-			<array>
-				<string>Dana</string>
-				<string>Florin</string>
-			</array>
-			<key>Values</key>
-			<array>
-				<string>Dana</string>
-				<string>Florin</string>
-			</array>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSMultiValueSpecifier</string>
-			<key>Title</key>
-			<string>Language</string>
-			<key>Key</key>
-			<string>lang_id</string>
-			<key>DefaultValue</key>
-			<string>ro</string>
-			<key>Titles</key>
-			<array>
-				<string>English</string>
-				<string>Romanian</string>
-			</array>
-			<key>Values</key>
-			<array>
-				<string>en</string>
-				<string>ro</string>
-			</array>
+			<false/>
 		</dict>
 	</array>
 </dict>
