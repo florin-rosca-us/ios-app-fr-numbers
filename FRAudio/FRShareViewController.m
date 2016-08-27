@@ -2,8 +2,8 @@
 //  ShareViewController.m
 //  FRAudio
 //
-//  Created by Florin on 8/15/16.
-//  Copyright © 2016 Florin. All rights reserved.
+//  Created by Florin Rosca on 8/15/16.
+//  Copyright © 2016 Florin Rosca. All rights reserved.
 //
 //  See https://developer.apple.com/library/ios/documentation/General/Conceptual/ExtensibilityPG/ExtensionCreation.html
 //
