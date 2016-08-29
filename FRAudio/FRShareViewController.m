@@ -35,7 +35,7 @@
     UINavigationBar *bar = self.navigationBar;
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", nil) style:UIBarButtonItemStyleDone target:nil action:@selector(doCancel)];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", nil) style:UIBarButtonItemStyleDone target:nil action:@selector(doSave)];
-    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Count with Me", nil)];
+    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Count With Me", nil)];
     item.leftBarButtonItem = leftButton;
     item.rightBarButtonItem = rightButton;
     item.hidesBackButton = YES;
