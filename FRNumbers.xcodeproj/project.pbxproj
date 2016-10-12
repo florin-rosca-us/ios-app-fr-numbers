@@ -114,6 +114,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E1744351DAEF92E0067C578 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4E1744371DAEF9380067C578 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4E1744381DAEFA1A0067C578 /* Docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Docs; sourceTree = "<group>"; };
 		4E2962071C5BE88C00590CF1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4E2962091C5BE88C00590CF1 /* FRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRAppDelegate.h; sourceTree = "<group>"; };
 		4E29620A1C5BE88C00590CF1 /* FRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRAppDelegate.m; sourceTree = "<group>"; };
@@ -230,6 +233,9 @@
 				4E3676D31D623E510015B777 /* FRAudio */,
 				4E3676321D5988260015B777 /* Products */,
 				4E3676D21D623E510015B777 /* FRAudio.appex */,
+				4E1744351DAEF92E0067C578 /* README.md */,
+				4E1744371DAEF9380067C578 /* LICENSE */,
+				4E1744381DAEFA1A0067C578 /* Docs */,
 			);
 			sourceTree = "<group>";
 		};
