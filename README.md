@@ -25,7 +25,7 @@ Swiping through numbers:
 
 Importing from Voice Memos:
 
-![Record](Docs/vm01.png?raw=true) ![Choose](Docs/vm02.png?raw=true) ![Export](Docs/vm03.png?raw=true) ![Assign](Docs/vm04.png?raw=true)
+![Choose](Docs/vm02.png?raw=true) ![Export](Docs/vm03.png?raw=true) ![Assign](Docs/vm04.png?raw=true)
 
 Option to reset audio:
 
