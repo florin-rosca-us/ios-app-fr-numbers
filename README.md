@@ -1,7 +1,7 @@
 ![1](Docs/1234_80x80.png?raw=true)
 
 # Count With Me
-An iOS application for teaching toddlers numbers from 1 to 10 using your voice.
+An iOS app for teaching toddlers numbers from 1 to 10.
 
 ## Background
 Toddlers seem to enjoy swiping back and forth on phones and tablets, but they always seem to be able to reach the phone's settings and mess it up.
