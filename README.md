@@ -1,3 +1,5 @@
+![1](Docs/1234_80x80.png?raw=true)
+
 # Count With Me
 Teach toddlers numbers from 1 to 10 using your voice.
 
